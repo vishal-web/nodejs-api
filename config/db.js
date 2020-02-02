@@ -9,7 +9,7 @@ const connectDB = async () => {
   });
 
   
-  console.log(`Mongo db is connection on PORT ${conn.connection.host}`);
+  console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline.bold);
 }
 
 
