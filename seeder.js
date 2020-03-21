@@ -28,7 +28,7 @@ const importData = async () => {
     process.exit();
 
   } catch (err) {
-    console.err(err);
+    console.error(err);
   }
 }
 
