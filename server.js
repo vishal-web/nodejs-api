@@ -1,5 +1,7 @@
+const path = require('path');
 const express =  require('express');
 const dotenv = require('dotenv');
+const fileUpload = require('express-fileupload');
 
 // Load env var
 dotenv.config({ path: './config/config.env' });
@@ -17,12 +19,17 @@ const app = express();
 connectDB();``
 
 // Body parser
-app.use(express.json());
-
+app.use(express.json()); 
 
 if(process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
+
+// File uploading
+app.use(fileUpload());
+
+// Set public path
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', routes);
 
